@@ -1,0 +1,38 @@
+
+plugins {
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.1.0'
+}
+
+group = 'com.filzabi'
+version = '1.0.0'
+
+repositories {
+    mavenCentral()
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+javafx {
+    version = '21'
+    modules = ['javafx.controls', 'javafx.graphics']
+}
+
+dependencies {
+    implementation 'org.apache.poi:poi-ooxml:5.4.1'
+    implementation 'org.apache.commons:commons-csv:1.14.1'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.13.4'
+}
+
+application {
+    mainClass = 'com.filzabi.FilzaBIApp'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
